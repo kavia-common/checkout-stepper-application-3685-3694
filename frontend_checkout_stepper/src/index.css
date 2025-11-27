@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ocean Professional global styles */
+:root {
+  --primary: #2563EB;
+  --secondary: #F59E0B;
+  --error: #EF4444;
+  --bg: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply m-0 antialiased text-[var(--text)];
+  background: linear-gradient(to bottom right, rgba(59,130,246,0.08), #f9fafb);
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Reusable card */
+.card {
+  @apply bg-white rounded-xl shadow-soft border border-gray-100;
+}
+
+/* Button styles */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium;
+}
+.btn-primary {
+  @apply bg-[var(--primary)] text-white hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.btn-outline {
+  @apply border border-blue-200 text-blue-700 hover:bg-blue-50;
+}
+
+/* Input styles */
+.input {
+  @apply w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 bg-white;
+}
+.label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+.error-text {
+  @apply text-sm text-[var(--error)] mt-1;
+}
+
+/* Stepper styles */
+.stepper {
+  @apply w-full flex items-center justify-between gap-3;
+}
+.step {
+  @apply flex-1 flex flex-col items-center;
+}
+.step-circle {
+  @apply w-9 h-9 rounded-full flex items-center justify-center font-semibold;
+}
+.step-line {
+  @apply h-1 flex-1 bg-gray-200;
+}
+.step-active .step-circle {
+  @apply bg-[var(--primary)] text-white shadow;
+}
+.step-completed .step-circle {
+  @apply bg-blue-100 text-blue-700 border border-blue-200;
+}
+.step-upcoming .step-circle {
+  @apply bg-amber-100 text-amber-700 border border-amber-200;
+}
+.step-label {
+  @apply mt-2 text-xs font-medium text-gray-700 text-center;
+}
+
+.container-max {
+  @apply max-w-3xl w-full px-4;
 }
