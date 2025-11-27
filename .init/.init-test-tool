@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/checkout-stepper-application-3685-3694/frontend_checkout_stepper"
+}
